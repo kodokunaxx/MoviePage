@@ -1,0 +1,12 @@
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\bin\Debug\netcoreapp3.1\MoviePageSolution.Data.deps.json
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\bin\Debug\netcoreapp3.1\MoviePageSolution.Data.runtimeconfig.json
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\bin\Debug\netcoreapp3.1\MoviePageSolution.Data.runtimeconfig.dev.json
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\bin\Debug\netcoreapp3.1\MoviePageSolution.Data.dll
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\bin\Debug\netcoreapp3.1\MoviePageSolution.Data.pdb
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\obj\Debug\netcoreapp3.1\MoviePageSolution.Data.csprojAssemblyReference.cache
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\obj\Debug\netcoreapp3.1\MoviePageSolution.Data.AssemblyInfoInputs.cache
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\obj\Debug\netcoreapp3.1\MoviePageSolution.Data.AssemblyInfo.cs
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\obj\Debug\netcoreapp3.1\MoviePageSolution.Data.csproj.CoreCompileInputs.cache
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\obj\Debug\netcoreapp3.1\MoviePageSolution.Data.dll
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\obj\Debug\netcoreapp3.1\MoviePageSolution.Data.pdb
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Data\obj\Debug\netcoreapp3.1\MoviePageSolution.Data.genruntimeconfig.cache

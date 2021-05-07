@@ -1,0 +1,9 @@
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\bin\Debug\netcoreapp3.1\MoviePageSolution.Application.deps.json
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\bin\Debug\netcoreapp3.1\MoviePageSolution.Application.dll
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\bin\Debug\netcoreapp3.1\MoviePageSolution.Application.pdb
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\obj\Debug\netcoreapp3.1\MoviePageSolution.Application.csprojAssemblyReference.cache
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\obj\Debug\netcoreapp3.1\MoviePageSolution.Application.AssemblyInfoInputs.cache
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\obj\Debug\netcoreapp3.1\MoviePageSolution.Application.AssemblyInfo.cs
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\obj\Debug\netcoreapp3.1\MoviePageSolution.Application.csproj.CoreCompileInputs.cache
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\obj\Debug\netcoreapp3.1\MoviePageSolution.Application.dll
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.Application\obj\Debug\netcoreapp3.1\MoviePageSolution.Application.pdb

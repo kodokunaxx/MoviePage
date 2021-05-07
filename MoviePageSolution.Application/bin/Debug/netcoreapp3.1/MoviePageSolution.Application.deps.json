@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MoviePageSolution.Application/1.0.0": {
+        "runtime": {
+          "MoviePageSolution.Application.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MoviePageSolution.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
