@@ -13,6 +13,8 @@ namespace MoviePageSolution.Data.Repositories
     {
         Task<List<User>> getAll();
         Task<User> get(int? userID);
+        Task<User> login(string username, string password);
+        Task<User> checkUser(string username);
         Task<int> add(User user);
         Task<int> delete(int? userID);
         Task update(User user);
@@ -49,6 +51,50 @@ namespace MoviePageSolution.Data.Repositories
                                  PhoneNumber = p.PhoneNumber,
                                  Position = p.Position
                              }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+
+        public async Task<User> login(string username, string password)
+        {
+            if (_moviePageDbContext != null)
+            {
+                return await(from p in _moviePageDbContext.Users
+                             where (p.Username == username) && (p.Password == password)
+                             select new User
+                             {
+                                 Id = p.Id,
+                                 Username = p.Username,
+                                 Password = p.Password,
+                                 Fullname = p.Fullname,
+                                 Gender = p.Gender,
+                                 Email = p.Email,
+                                 DoB = p.DoB,
+                                 PhoneNumber = p.PhoneNumber,
+                                 Position = p.Position
+                             }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+
+        public async Task<User> checkUser(string username)
+        {
+            if (_moviePageDbContext != null)
+            {
+                return await (from p in _moviePageDbContext.Users
+                              where (p.Username == username)
+                              select new User
+                              {
+                                  Id = p.Id,
+                                  Username = p.Username,
+                                  Password = p.Password,
+                                  Fullname = p.Fullname,
+                                  Gender = p.Gender,
+                                  Email = p.Email,
+                                  DoB = p.DoB,
+                                  PhoneNumber = p.PhoneNumber,
+                                  Position = p.Position
+                              }).FirstOrDefaultAsync();
             }
             return null;
         }

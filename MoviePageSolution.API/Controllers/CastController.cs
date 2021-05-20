@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MoviePageSolution.Data.Repositories;
 using MoviePageSolution.Data.Entities;
 
-namespace CastPageSolution.API.Controllers
+namespace MoviePageSolution.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

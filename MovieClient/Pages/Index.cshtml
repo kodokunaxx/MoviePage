@@ -1,0 +1,72 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@section scripts{
+<script type="text/javascript" src="~/js/clientjs/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"></script>
+<script>
+    function onSuccess(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        sessionStorage.setItem("namelocal", profile.getName());
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+        window.location.href = '/Home';
+    }
+    function onFailure(error) {
+        console.log(error);
+    }
+    function renderButton() {
+        gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 240,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
+        });
+    }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+</script>
+}
+
+<div class="section">
+    <div class="container">
+        <div class="pricing">
+            <div class="pricing-list">
+                <div class="row">
+                    <div class="col-5 col-md-5 col-sm-5"></div>
+                    <div class="col-2 col-md-2 col-sm-2">
+                        <div class="user-box">
+                            <p>Tên đăng nhập: </p> <input type="text" placeholder="Tên đăng nhập" name="account">
+                            <p>Mật khẩu: </p> <input type="password" placeholder="Mật khẩu" name="account">
+                            Chưa có tài khoản?
+                            <a href="/Register" style="font-size: 15px;" id="changecolor">đăng ký</a>
+                        </div>
+                        <div class="pricing-header" style="margin-bottom: 0px;" id="addMovie">
+                            <a class="btn btn-hover" id="login" style="cursor: pointer;">
+                                <span>Đăng nhập</span>
+                            </a>
+                            <div>
+                                <div id="my-signin2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 col-md-5 col-sm-5"></div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

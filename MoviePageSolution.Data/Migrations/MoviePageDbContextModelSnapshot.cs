@@ -19,6 +19,101 @@ namespace MoviePageSolution.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("AppUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.ToTable("AppUserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("AppUserTokens");
+                });
+
             modelBuilder.Entity("MoviePageSolution.Data.Entities.Cast", b =>
                 {
                     b.Property<int>("Id")
@@ -52,7 +147,7 @@ namespace MoviePageSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Avatar = "image.tmdb.org/t/p/w500/lkW8gh20BuwzHecXqYH1eRVuWpb.jpg",
+                            Avatar = "https://image.tmdb.org/t/p/w500/lkW8gh20BuwzHecXqYH1eRVuWpb.jpg",
                             DoB = new DateTime(1987, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Fullname = "Lewis Tan",
                             Gender = 1,
@@ -61,7 +156,7 @@ namespace MoviePageSolution.Data.Migrations
                         new
                         {
                             Id = 2,
-                            Avatar = "image.tmdb.org/t/p/w500/aAfaMEEqD8syHv5bLi5B3sccrM2.jpg",
+                            Avatar = "https://image.tmdb.org/t/p/w500/aAfaMEEqD8syHv5bLi5B3sccrM2.jpg",
                             DoB = new DateTime(1986, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Fullname = "Jessica McNamee",
                             Gender = 2,
@@ -70,7 +165,7 @@ namespace MoviePageSolution.Data.Migrations
                         new
                         {
                             Id = 3,
-                            Avatar = "image.tmdb.org/t/p/w500/Am9vM77uZd9bGODugwmWtOfzx6E.jpg",
+                            Avatar = "https://image.tmdb.org/t/p/w500/Am9vM77uZd9bGODugwmWtOfzx6E.jpg",
                             DoB = new DateTime(1981, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Fullname = "Josh Lawson",
                             Gender = 1,
@@ -112,7 +207,17 @@ namespace MoviePageSolution.Data.Migrations
                         new
                         {
                             Id = 4,
+                            Name = "Phiêu lưu"
+                        },
+                        new
+                        {
+                            Id = 5,
                             Name = "Tình cảm"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Hài hước"
                         });
                 });
 
@@ -192,17 +297,47 @@ namespace MoviePageSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Backdrop = "image.tmdb.org/t/p/w500/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg",
+                            Backdrop = "https://localhost:44367/api/image/mortal-kombat-bg.jpg",
                             Director = "Simon McQuoid",
                             Episodes = 1,
                             Language = "Eng",
                             Nation = "USA",
                             Overview = "Mortal Kombat: Cuộc Chiến Sinh Tử xoay quanh võ sĩ võ thuật tổng hợp Cole Young (Lewis Tan), người mang trên mình một vết chàm rồng đen bí ẩn - biểu tượng của Mortal Kombat. Cole Young không hề biết về dòng máu bí ẩn đang chảy trong người anh, hay vì sao anh lại bị tên sát thủ Sub-Zero (Joe Taslim) săn lùng. Vì sự an nguy của gia đình, Cole cùng với một nhóm những chiến binh đã được tuyển chọn để tham gia vào một trận chiến đẫm máu nhằm chống lại những kẻ thù đến từ Outworld.",
-                            Poster = "image.tmdb.org/t/p/w500/5iHZ6KUSnLEnStXJ6BfFA5Uk2PT.jpg",
+                            Poster = "https://localhost:44367/api/image/mortal-kombat-poster.jpg",
                             Release_date = new DateTime(2021, 4, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Time = 110,
                             Title = "Mortal Kombat",
-                            Youtube = "youtube.com/watch?v=-BQPKD7eozY"
+                            Youtube = "https://www.youtube.com/watch?v=-BQPKD7eozY"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Backdrop = "https://localhost:44367/api/image/supergirl-banner.jpg",
+                            Director = "Đỗ Mạnh Hà",
+                            Episodes = 24,
+                            Language = "Eng",
+                            Nation = "USA",
+                            Overview = "Supergirl là một phim truyền hình Mỹ được phát triển bởi Ali Adler, Greg Berlanti và Andrew Kreisberg ban đầu được phát sóng trên CBS và được công chiếu vào ngày 26 tháng 10 năm 2015",
+                            Poster = "https://localhost:44367/api/image/supergirl.jpg",
+                            Release_date = new DateTime(2021, 4, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Time = 45,
+                            Title = "Super Girl",
+                            Youtube = "https://www.youtube.com/watch?v=49RZx5tUKM4"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Backdrop = "https://localhost:44367/api/image/wanda-banner.jpg",
+                            Director = "Jac Schaeffer",
+                            Episodes = 14,
+                            Language = "Eng",
+                            Nation = "USA",
+                            Overview = "WandaVision là một miniseries truyền hình Mỹ do Jac Schaeffer tạo ra cho dịch vụ phát trực tuyến Disney +, dựa trên các nhân vật Marvel Comics Wanda Maximoff / Scarlet Witch và Vision.",
+                            Poster = "https://localhost:44367/api/image/wanda.png",
+                            Release_date = new DateTime(2021, 4, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Time = 23,
+                            Title = "WandaVision",
+                            Youtube = "https://www.youtube.com/watch?v=sj9J2ecsSpo"
                         });
                 });
 
@@ -290,6 +425,42 @@ namespace MoviePageSolution.Data.Migrations
                             Id = 3,
                             IdCategory = 3,
                             IdMovie = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IdCategory = 1,
+                            IdMovie = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IdCategory = 3,
+                            IdMovie = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            IdCategory = 5,
+                            IdMovie = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            IdCategory = 3,
+                            IdMovie = 3
+                        },
+                        new
+                        {
+                            Id = 8,
+                            IdCategory = 5,
+                            IdMovie = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            IdCategory = 6,
+                            IdMovie = 3
                         });
                 });
 

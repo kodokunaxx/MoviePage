@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MoviePageSolution.Data.EF;
 using MoviePageSolution.Data.Entities;
 using MoviePageSolution.Data.Repositories;
 using System;
@@ -13,15 +15,35 @@ namespace MoviePageSolution.API.Controllers
     public class MovieController : ControllerBase
     {
         private readonly MovieRepository _movieRepository;
-        public MovieController(MovieRepository movieRepository)
+        private MoviePageDbContext _context;
+        public MovieController(MovieRepository movieRepository,MoviePageDbContext context)
         {
             _movieRepository = movieRepository;
+            _context = context;
         }
-
         [HttpGet]
-        public async Task<IActionResult> getAll()
+        [Route("search")]
+        public async Task<IActionResult> Index(string keyword)
         {
-            return Ok(await _movieRepository.getAll());
+            var movies = from m in _context.Movies
+                         select new  { 
+                            m.Id,
+                            m.Title,
+                            m.Time,
+                            m.Poster
+                         };
+
+            if (!String.IsNullOrEmpty(keyword))
+            {
+                movies = movies.Where(s => s.Title.Contains(keyword));
+            }
+
+            return Ok(await movies.ToListAsync());
+        }
+        [HttpGet]
+        public async Task<IActionResult> getAll(int? categoryID = null)
+        {
+            return Ok(await _movieRepository.getAll(categoryID));
         }
 
         [HttpGet("{movieID}")]

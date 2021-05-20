@@ -1,0 +1,92 @@
+﻿@page
+@model MovieClient.Pages.MovieDetailModel
+@{
+    ViewData["Title"] = "Movie";
+    Layout = "~/Pages/Shared/_LayoutMovie.cshtml";
+}
+@section scripts{
+<script type="text/javascript" src="~/js/clientjs/updateMovie.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"></script>
+}
+
+<div class="section">
+    <div class="container">
+        <div class="pricing">
+            <div class="pricing-list">
+                <div class="row">
+                    <div class="col-2 col-md-2 col-sm-2"></div>
+                    <div class="col-8 col-md-8 col-sm-8">
+                        <div class="user-box">
+                            <p>Tiêu đề: </p> <input type="text" placeholder="Tiêu đề" name="movie">
+                            <p>Thời lượng: </p> <input type="number" placeholder="Thời lượng" name="movie">
+                            <p>Số tập: </p> <input type="number" placeholder="số tập" name="movie">
+                            <p>Ngày chiếu: </p> <input type="date" name="movie">
+                            <p>Ngôn ngữ: </p> <input type="text" placeholder="Ngôn ngữ" name="movie">
+                            <p>Quốc gia: </p> <input type="text" placeholder="Quốc gia" name="movie">
+                            <p>Đạo diễn: </p> <input type="text" placeholder="Đạo diễn" name="movie">
+                            <p>Tóm tắt: </p> <input type="text" placeholder="Tóm tắt" name="movie">
+                            <div class="row">
+                                <div class="col-5 col-md-5 col-sm-5">
+                                    <p>Poster: </p> <input type="file" id="poster">
+                                </div>
+                                <div class="col-2 col-md-2 col-sm-2">
+                                    <img src="#" alt="" id="posterimg">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 col-md-5 col-sm-5">
+                                    <p>Background: </p> <input type="file" id="backdrop">
+                                </div>
+                                <div class="col-3 col-md-3 col-sm-3">
+                                    <img src="#" alt="" id="backdropimg">
+                                </div>
+                            </div>
+                            <p>Youtube: </p> <input type="text" placeholder="Link trailer" name="movie">
+                            <p>Thể loại: </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 col-md-4 col-sm-4">
+                                <div>
+                                    <input type="checkbox" id="hanhdong" name="checkbox" value="1" checked>
+                                    <label for="hanhdong">Hành động</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="vientuong" name="checkbox" value="2">
+                                    <label for="vientuong">Viễn tưởng</label>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-4 col-sm-4">
+                                <div>
+                                    <input type="checkbox" id="kinhdi" name="checkbox" value="3">
+                                    <label for="kinhdi">Kinh dị</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="phieuluu" name="checkbox" value="4">
+                                    <label for="phieuluu">Phiêu lưu</label>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-4 col-sm-4">
+                                <div>
+                                    <input type="checkbox" id="tinhcam" name="checkbox" value="5">
+                                    <label for="tinhcam">Tình cảm</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="haihuoc" name="checkbox" value="6">
+                                    <label for="haihuoc">Hài hước</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-header" style="margin-bottom: 0px;" id="addMovie">
+                            <a class="btn btn-hover" id="add" style="cursor: pointer;">
+                                <span>Cập nhật</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-2 col-md-2 col-sm-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

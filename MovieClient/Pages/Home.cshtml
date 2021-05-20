@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_LayoutMovie.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="~/js/clientjs/home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+}
+<!-- HERO SECTION -->
+<div class="hero-section">
+    <!-- HERO SLIDE -->
+    <div class="hero-slide">
+        <div class="owl-carousel carousel-nav-center" id="hero-carousel">
+        </div>
+    </div>
+    <!-- END HERO SLIDE -->
+</div>
+<!-- END HERO SECTION -->
+<!-- LATEST MOVIES SECTION -->
+<div class="section">
+    <div class="container">
+        <div class="section-header">
+            Phim đề xuất
+        </div>
+        <div class="movies-slide carousel-nav-center owl-carousel">
+        </div>
+    </div>
+</div>
+<!-- END LATEST MOVIES SECTION -->

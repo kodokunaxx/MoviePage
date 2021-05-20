@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +43,16 @@ namespace MoviePageSolution.API
                 builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
 
             }));
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                // Đọc thông tin Authentication:Google từ appsettings.json
+                IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
+        
+                // Thiết lập ClientID và ClientSecret để truy cập API google
+                googleOptions.ClientId = googleAuthNSection["ClientId"];
+                googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+        
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -24,6 +24,12 @@ namespace MoviePageSolution.API.Controllers
             return Ok(await _categoryRepository.getAll());
         }
 
+        [HttpGet("{idMovie}")]
+        public async Task<IActionResult> getMovieCategory(int? idMovie = null)
+        {
+            return Ok(await _categoryRepository.getMovieCategory(idMovie));
+        }
+
         [HttpPost]
         [Route("add")]
         public async Task<IActionResult> add([FromBody] Category category)

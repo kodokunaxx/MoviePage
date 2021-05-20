@@ -30,6 +30,20 @@ namespace MoviePageSolution.API.Controllers
             return Ok(await _userRepository.get(userID));
         }
 
+        [HttpGet]
+        [Route("login")]
+        public async Task<IActionResult> login(string username, string password)
+        {
+            return Ok(await _userRepository.login(username, password));
+        }
+
+        [HttpGet]
+        [Route("check")]
+        public async Task<IActionResult> checkUser(string username)
+        {
+            return Ok(await _userRepository.checkUser(username));
+        }
+
         [HttpPost]
         [Route("add")]
         public async Task<IActionResult> add([FromBody] User user)

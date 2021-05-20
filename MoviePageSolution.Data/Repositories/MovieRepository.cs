@@ -11,7 +11,7 @@ namespace MoviePageSolution.Data.Repositories
 {
     public interface IMovieRepository
     {
-        Task<List<Movie>> getAll();
+        Task<List<Movie>> getAll(int? categoryID = null);
         Task<Movie> get(int? movieID);
         Task<int> add(Movie movie);
         Task<int> delete(int? movieID);
@@ -25,10 +25,53 @@ namespace MoviePageSolution.Data.Repositories
             _moviePageDbContext = moviePageDbContext;
         }
 
-        public async Task<List<Movie>> getAll()
+        public async Task<List<Movie>> getAll(int? categoryID = null)
         {
-            return await _moviePageDbContext.Movies.ToListAsync();
+            if (categoryID.HasValue)
+            {
+                var query = await (from p in _moviePageDbContext.Movies
+                               join a in _moviePageDbContext.MovieCategories on p.Id equals a.IdMovie
+                               join c in _moviePageDbContext.Categories on a.IdCategory equals c.Id
+                               where c.Id == categoryID
+                               select new Movie
+                               {
+                                   Id = p.Id,
+                                   Title = p.Title,
+                                   Overview = p.Overview,
+                                   Release_date = p.Release_date,
+                                   Director = p.Director,
+                                   Backdrop = p.Backdrop,
+                                   Poster = p.Poster,
+                                   Time = p.Time,
+                                   Nation = p.Nation,
+                                   Episodes = p.Episodes,
+                                   Language = p.Language,
+                                   Youtube = p.Youtube
+                               }).ToListAsync();
+                return query;
+            }
+            else
+            {
+                return await (from p in _moviePageDbContext.Movies
+                              select new Movie
+                              {
+                                  Id = p.Id,
+                                  Title = p.Title,
+                                  Overview = p.Overview,
+                                  Release_date = p.Release_date,
+                                  Director = p.Director,
+                                  Backdrop = p.Backdrop,
+                                  Poster = p.Poster,
+                                  Time = p.Time,
+                                  Nation = p.Nation,
+                                  Episodes = p.Episodes,
+                                  Language = p.Language,
+                                  Youtube = p.Youtube
+                              }).ToListAsync();
+            }
         }
+
+        
 
         public async Task<Movie> get(int? movieID)
         {

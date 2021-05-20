@@ -21,7 +21,7 @@ namespace MoviePageSolution.API.Controllers
         [HttpGet]
         public async Task<IActionResult> getAll()
         {
-            return Ok(_movieCastRepository.getAll());
+            return Ok(await _movieCastRepository.getAll());
         }
 
         [HttpPost]

@@ -18,6 +18,18 @@ namespace MoviePageSolution.API.Controllers
             _movieCategoryRepository = movieCategoryRepository;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> getAll()
+        {
+            return Ok(await _movieCategoryRepository.getAll());
+        }
+
+        [HttpGet("{idMovie}")]
+        public async Task<IActionResult> getCategoryOfMovie(int? idMovie)
+        {
+            return Ok(await _movieCategoryRepository.getCategoryOfMovie(idMovie));
+        }
+
         [HttpPost]
         [Route("add")]
         public async Task<IActionResult> add([FromBody] MovieCategory movieCategory)

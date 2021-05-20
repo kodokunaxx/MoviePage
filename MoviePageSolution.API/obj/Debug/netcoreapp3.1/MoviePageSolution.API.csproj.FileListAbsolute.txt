@@ -56,3 +56,6 @@ C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.API\obj\Debug
 C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.API\obj\Debug\netcoreapp3.1\MoviePageSolution.API.dll
 C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.API\obj\Debug\netcoreapp3.1\MoviePageSolution.API.pdb
 C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.API\obj\Debug\netcoreapp3.1\MoviePageSolution.API.genruntimeconfig.cache
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\kodokuna\source\repos\MoviePageSolution\MoviePageSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll

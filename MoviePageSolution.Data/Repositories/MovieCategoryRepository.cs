@@ -11,6 +11,8 @@ namespace MoviePageSolution.Data.Repositories
 {   
     public interface IMovieCategoryRepository
     {
+        Task<List<MovieCategory>> getAll();
+        Task<List<MovieCategory>> getCategoryOfMovie(int? idMovie);
         Task<int> add(MovieCategory movieCategory);
         Task<int> delete(int? movieCategoryID);
         Task update(MovieCategory movieCategory);
@@ -21,6 +23,22 @@ namespace MoviePageSolution.Data.Repositories
         public MovieCategoryRepository(MoviePageDbContext moviePageDbContext)
         {
             _moviePageDbContext = moviePageDbContext;
+        }
+
+        public async Task<List<MovieCategory>> getAll()
+        {
+            return await _moviePageDbContext.MovieCategories.ToListAsync();
+        }
+
+        public async Task<List<MovieCategory>> getCategoryOfMovie(int? idMovie)
+        {
+            return await (from p in _moviePageDbContext.MovieCategories
+                          where p.IdMovie == idMovie
+                          select new MovieCategory {
+                            Id = p.Id,
+                            IdMovie = p.IdMovie,
+                            IdCategory = p.IdCategory
+                          }).ToListAsync();
         }
         public async Task<int> add(MovieCategory movieCategory)
         {

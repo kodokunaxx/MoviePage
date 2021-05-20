@@ -1,0 +1,65 @@
+﻿@page
+@model MovieClient.Pages.MovieDetailModel
+@{
+    ViewData["Title"] = "Movie";
+    Layout = "~/Pages/Shared/_LayoutMovie.cshtml";
+}
+@section scripts{
+<script type="text/javascript" src="~/js/clientjs/movieDetail.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"></script>
+}
+
+<div class="section">
+    <div class="container">
+        <div class="pricing">
+            <div class="pricing-header" id="title">
+            </div>
+            <div class="pricing-list">
+                <div class="row">
+                    <div class="col-4 col-md-12 col-sm-12">
+                        <div class="pricing-box">
+                            <img src="#" alt="" id="img">
+                        </div>
+                        <div class="pricing-box-action">
+                            <a href="#" class="btn btn-hover" id="youtube">
+                                <span>Xem phim</span>
+                            </a>
+
+
+                        </div>
+                    </div>
+                    <div class="col-8 col-md-12 col-sm-12">
+                        <div class="pricing-box-header">
+                            <div class="pricing-name">
+                                Thông tin chi tiết:
+                            </div>
+                            <div class="pricing-price">
+                                <a href="#" class="btn btn-hover" id="btnSua">
+                                    <span>Sửa</span>
+                                </a>
+                                <span style="margin: 0px 10px 0px 10px;"></span>
+                                <a href="~/Movie" class="btn btn-hover" id="btnXoa">
+                                    <span>Xóa</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pricing-box-header">
+                            <div class="pricing-name">
+                                <p>Thể loại: </p>
+                                <p>Thời lượng: </p>
+                                <p>Số tập: </p>
+                                <p>Ngày chiếu: </p>
+                                <p>Ngôn ngữ: </p>
+                                <p>Quốc gia: </p>
+                                <p>Đạo diễn: </p>
+                                <p>Tóm tắt: </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
